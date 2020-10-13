@@ -13,4 +13,10 @@ public class QuantityMeasurementTest {
         boolean check = quantityMeasurement.compareLength(checkFeet,inch);
         Assert.assertTrue(check);
     }
+    @Test
+    public void givingFeet_whenEquals_ShouldReturnEquals(){
+        Feet feet = new Feet(0.0);
+        Feet feet1 = new Feet(0.0);
+        Assert.assertEquals(feet,feet1);
+    }
 }
