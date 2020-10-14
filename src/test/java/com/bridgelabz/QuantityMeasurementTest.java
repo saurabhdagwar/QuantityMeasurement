@@ -134,5 +134,12 @@ public class QuantityMeasurementTest {
         double feet = new Length().convert(Unit.FEET.getUnit(), 3.0);
         Assert.assertEquals(yard, feet, 0.0);
     }
+    @Test
+    public void giving2InchAnd5CM_ShouldReturnEqual() {
+        double cm = new Length().convert(Unit.CM.getUnit(), 5.0);
+        double inch = new Length().convert(Unit.INCH.getUnit(), 2.0);
+        boolean compareCheck = new checkEqual(cm, inch).check();
+        Assert.assertTrue(compareCheck);
+    }
 
 }
