@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bridgelabz.QuantityMeasurementTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-13T10:02:32" hostname="DESKTOP-JVE4C36" time="0.014">
+<testsuite name="com.bridgelabz.QuantityMeasurementTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2020-10-14T08:25:35" hostname="DESKTOP-JVE4C36" time="0.028">
   <properties/>
-  <testcase name="givingFeet_whenEquals" classname="com.bridgelabz.QuantityMeasurementTest" time="0.014"/>
+  <testcase name="givingLength_WhenSame_ShouldReturnTrue" classname="com.bridgelabz.QuantityMeasurementTest" time="0.003"/>
+  <testcase name="givingFeet_whenSame_ShouldReturnEquals" classname="com.bridgelabz.QuantityMeasurementTest" time="0.004"/>
+  <testcase name="giving1YardAnd0Yard_ShouldReturnNotEqual" classname="com.bridgelabz.QuantityMeasurementTest" time="0.001"/>
+  <testcase name="givingFeet_whenNotSame_ShouldReturnNotEquals" classname="com.bridgelabz.QuantityMeasurementTest" time="0.001"/>
+  <testcase name="giving1FeetAnd1Inch_ShouldReturnNotEqual" classname="com.bridgelabz.QuantityMeasurementTest" time="0.001"/>
+  <testcase name="giving1FeetAnd1Feet_ShouldReturnEqualLength" classname="com.bridgelabz.QuantityMeasurementTest" time="0.0"/>
+  <testcase name="giving1YardAnd3Feet_ShouldReturnEqual" classname="com.bridgelabz.QuantityMeasurementTest" time="0.0"/>
+  <testcase name="giving0Inch_whenNotSame_ShouldReturnNotEquals" classname="com.bridgelabz.QuantityMeasurementTest" time="0.0"/>
+  <testcase name="giving1YardAnd1Inch_ShouldReturnNotEqual" classname="com.bridgelabz.QuantityMeasurementTest" time="0.0"/>
+  <testcase name="giving1YardAnd1Yard_ShouldReturnEqual" classname="com.bridgelabz.QuantityMeasurementTest" time="0.0"/>
+  <testcase name="giving12FeetAnd1Inch_ShouldReturnNotEqual" classname="com.bridgelabz.QuantityMeasurementTest" time="0.001"/>
+  <testcase name="giving0Inch_whenSame_ShouldReturnEquals" classname="com.bridgelabz.QuantityMeasurementTest" time="0.0"/>
+  <testcase name="giving3FeetAnd1Yard_ShouldReturnEqual" classname="com.bridgelabz.QuantityMeasurementTest" time="0.001"/>
+  <testcase name="giving1YardAnd36Inch_ShouldReturnEqual" classname="com.bridgelabz.QuantityMeasurementTest" time="0.0"/>
+  <testcase name="giving36InchAnd1Yard_ShouldReturnEqual" classname="com.bridgelabz.QuantityMeasurementTest" time="0.001"/>
+  <testcase name="giving1YardAnd1Feet_ShouldReturnNotEqual" classname="com.bridgelabz.QuantityMeasurementTest" time="0.002"/>
+  <testcase name="giving0FeetAnd0Inch_ShouldReturnNotEqual" classname="com.bridgelabz.QuantityMeasurementTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

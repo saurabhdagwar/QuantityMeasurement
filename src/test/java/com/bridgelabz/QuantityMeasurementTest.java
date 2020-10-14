@@ -16,131 +16,123 @@ public class QuantityMeasurementTest {
 
     @Test
     public void givingFeet_whenSame_ShouldReturnEquals() {
-        Length length = new Length(Length.Unit.FEET, 0.0);
-        Length length1 = new Length(Length.Unit.FEET, 0.0);
-        Assert.assertEquals(length, length1);
+        double feet = new Length().convert(Unit.FEET.getUnit(), 1.0);
+        double feet1 = new Length().convert(Unit.FEET.getUnit(), 1.0);
+        Assert.assertEquals(feet, feet1, 0.0);
     }
 
     @Test
     public void givingFeet_whenNotSame_ShouldReturnNotEquals() {
-        Length length = new Length(Length.Unit.FEET, 0.0);
-        Length length1 = new Length(Length.Unit.FEET, 1.0);
-        Assert.assertNotEquals(length, length1);
+        double feet = new Length().convert(Unit.FEET.getUnit(), 1.0);
+        double feet1 = new Length().convert(Unit.FEET.getUnit(), 0.0);
+        Assert.assertNotEquals(feet, feet1);
     }
 
     @Test
     public void giving0Inch_whenSame_ShouldReturnEquals() {
-        Length length = new Length(Length.Unit.INCH, 0.0);
-        Length length1 = new Length(Length.Unit.INCH, 0.0);
-        Assert.assertEquals(length, length1);
+        double inch = new Length().convert(Unit.INCH.getUnit(), 0.0);
+        double inch1 = new Length().convert(Unit.INCH.getUnit(), 0.0);
+        Assert.assertEquals(inch, inch1, 0.0);
     }
 
     @Test
     public void giving0Inch_whenNotSame_ShouldReturnNotEquals() {
-        Length length = new Length(Length.Unit.INCH, 0.0);
-        Length length1 = new Length(Length.Unit.INCH, 1.0);
-        Assert.assertNotEquals(length, length1);
+        double inch = new Length().convert(Unit.INCH.getUnit(), 0.0);
+        double inch1 = new Length().convert(Unit.INCH.getUnit(), 1.0);
+        Assert.assertNotEquals(inch, inch1);
     }
 
     @Test
     public void giving1FeetAnd1Inch_ShouldReturnNotEqual() {
-        Length length = new Length(Length.Unit.FEET, 1.0);
-        Length length1 = new Length(Length.Unit.INCH, 1.0);
-        Assert.assertNotEquals(length, length1);
+        double feet = new Length().convert(Unit.FEET.getUnit(), 1.0);
+        double inch1 = new Length().convert(Unit.INCH.getUnit(), 1.0);
+        Assert.assertNotEquals(feet, inch1);
     }
 
     @Test
-    public void giving1FeetAnd0Inch_ShouldReturnEqual(){
-        Length length = new Length(Length.Unit.FEET, 0.0);
-        Length length1 = new Length(Length.Unit.INCH, 0.0);
-       boolean compareCheck = length.compare(length1);
-       Assert.assertTrue(compareCheck);
-    }
-    @Test
-    public void giving0FeetAnd0Inch_ShouldReturnNotEqual(){
-        Length length = new Length(Length.Unit.FEET, 1.0);
-        Length length1 = new Length(Length.Unit.INCH, 1.0);
-        boolean compareCheck = length.compare(length1);
-        Assert.assertFalse(compareCheck);
-    }
-    @Test
-    public void giving1FeetAnd1Feet_ShouldReturnEqualLength(){
-        Length length = new Length(Length.Unit.FEET, 1.0);
-        Length length1 = new Length(Length.Unit.FEET, 1.0);
-        boolean compareCheck = length.compare(length1);
-        Assert.assertTrue(compareCheck);
-    }
-    @Test
-    public void giving1FeetAnd12Inch_ShouldReturnEqualLength(){
-        Length length = new Length(Length.Unit.FEET, 1.0);
-        Length length1 = new Length(Length.Unit.INCH, 12.0);
-        boolean compareCheck = length.compare(length1);
-        Assert.assertTrue(compareCheck);
-    }
-    @Test
-    public void giving12FeetAnd1Inch_ShouldReturnNotEqual(){
-        Length length = new Length(Length.Unit.FEET, 12.0);
-        Length length1 = new Length(Length.Unit.INCH, 1.0);
-        boolean compareCheck = length.compare(length1);
-        Assert.assertFalse(compareCheck);
-    }
-    @Test
-    public void giving1YardAnd1Yard_ShouldReturnEqual(){
-        Length yard = new Length(Length.Unit.YARD, 1.0);
-        Length yard1 = new Length(Length.Unit.YARD, 1.0);
-        boolean compareCheck = yard.compare(yard1);
-        Assert.assertTrue(compareCheck);
-    }
-    @Test
-    public void giving1YardAnd0Yard_ShouldReturnNotEqual(){
-        Length yard = new Length(Length.Unit.YARD, 1.0);
-        Length yard1 = new Length(Length.Unit.YARD, 0.0);
-        boolean compareCheck = yard.compare(yard1);
-        Assert.assertFalse(compareCheck);
-    }
-    @Test
-    public void giving3FeetAnd1Yard_ShouldReturnEqual(){
-        Length yard = new Length(Length.Unit.YARD, 1.0);
-        Length feet = new Length(Length.Unit.FEET, 3.0);
-        boolean compareCheck = feet.compare(yard);
-        Assert.assertTrue(compareCheck);
-    }
-    @Test
-    public void giving1YardAnd1Feet_ShouldReturnNotEqual(){
-        Length yard = new Length(Length.Unit.YARD, 1.0);
-        Length feet = new Length(Length.Unit.FEET, 1.0);
-        boolean compareCheck = yard.compare(feet);
-        Assert.assertFalse(compareCheck);
-    }
-    @Test
-    public void giving1YardAnd1Inch_ShouldReturnNotEqual(){
-        Length yard = new Length(Length.Unit.YARD, 1.0);
-        Length inch = new Length(Length.Unit.INCH, 1.0);
-        boolean compareCheck = yard.compare(inch);
-        Assert.assertFalse(compareCheck);
-    }
-    @Test
-    public void giving1YardAnd36Inch_ShouldReturnEqual(){
-        Length yard = new Length(Length.Unit.YARD, 1.0);
-        Length inch = new Length(Length.Unit.INCH, 36.0);
-        boolean compareCheck = yard.compare(inch);
-        Assert.assertTrue(compareCheck);
-    }
-    @Test
-    public void giving36InchAnd1Yard_ShouldReturnEqual(){
-        Length yard = new Length(Length.Unit.YARD, 1.0);
-        Length inch = new Length(Length.Unit.INCH, 36.0);
-        boolean compareCheck = inch.compare(yard);
-        Assert.assertTrue(compareCheck);
-    }
-    @Test
-    public void giving1YardAnd3Feet_ShouldReturnEqual(){
-        Length yard = new Length(Length.Unit.YARD, 1.0);
-        Length feet = new Length(Length.Unit.FEET, 3.0);
-        boolean compareCheck = yard.compare(feet);
+    public void giving0FeetAnd0Inch_ShouldReturnNotEqual() {
+        double feet = new Length().convert(Unit.FEET.getUnit(), 0.0);
+        double inch = new Length().convert(Unit.INCH.getUnit(), 0.0);
+        boolean compareCheck = new checkEqual(feet, inch).check();
         Assert.assertTrue(compareCheck);
     }
 
+    @Test
+    public void giving1FeetAnd1Feet_ShouldReturnEqualLength() {
+        double feet = new Length().convert(Unit.FEET.getUnit(), 1.0);
+        double feet1 = new Length().convert(Unit.FEET.getUnit(), 1.0);
+        boolean compareCheck = new checkEqual(feet, feet1).check();
+        Assert.assertTrue(compareCheck);
+    }
 
+    @Test
+    public void giving12FeetAnd1Inch_ShouldReturnNotEqual() {
+        double feet = new Length().convert(Unit.FEET.getUnit(), 12.0);
+        double inch = new Length().convert(Unit.INCH.getUnit(), 1.0);
+        boolean compareCheck = new checkEqual(feet, inch).check();
+        Assert.assertFalse(compareCheck);
+    }
+
+    @Test
+    public void giving1YardAnd1Yard_ShouldReturnEqual() {
+        double yard = new Length().convert(Unit.YARD.getUnit(), 1.0);
+        double yard1 = new Length().convert(Unit.YARD.getUnit(), 1.0);
+        boolean compareCheck = new checkEqual(yard1, yard).check();
+        Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void giving1YardAnd0Yard_ShouldReturnNotEqual() {
+        double yard = new Length().convert(Unit.YARD.getUnit(), 1.0);
+        double yard1 = new Length().convert(Unit.YARD.getUnit(), 0.0);
+        boolean compareCheck = new checkEqual(yard1, yard).check();
+        Assert.assertFalse(compareCheck);
+    }
+
+    @Test
+    public void giving3FeetAnd1Yard_ShouldReturnEqual() {
+        double yard = new Length().convert(Unit.YARD.getUnit(), 1.0);
+        double feet = new Length().convert(Unit.FEET.getUnit(), 3.0);
+        boolean compareCheck = new checkEqual(feet, yard).check();
+        Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void giving1YardAnd1Feet_ShouldReturnNotEqual() {
+        double yard = new Length().convert(Unit.YARD.getUnit(), 1.0);
+        double feet = new Length().convert(Unit.FEET.getUnit(), 1.0);
+        boolean compareCheck = new checkEqual(yard, feet).check();
+        Assert.assertFalse(compareCheck);
+    }
+
+    @Test
+    public void giving1YardAnd1Inch_ShouldReturnNotEqual() {
+        double yard = new Length().convert(Unit.YARD.getUnit(), 1.0);
+        double inch = new Length().convert(Unit.INCH.getUnit(), 1.0);
+        boolean compareCheck = new checkEqual(yard, inch).check();
+        Assert.assertFalse(compareCheck);
+    }
+
+    @Test
+    public void giving1YardAnd36Inch_ShouldReturnEqual() {
+        double yard = new Length().convert(Unit.YARD.getUnit(), 1.0);
+        double inch = new Length().convert(Unit.INCH.getUnit(), 36.0);
+        boolean compareCheck = new checkEqual(yard, inch).check();
+        Assert.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void giving36InchAnd1Yard_ShouldReturnEqual() {
+        double yard = new Length().convert(Unit.YARD.getUnit(), 1.0);
+        double inch = new Length().convert(Unit.INCH.getUnit(), 36.0);
+        Assert.assertEquals(yard, inch, 0.0);
+    }
+
+    @Test
+    public void giving1YardAnd3Feet_ShouldReturnEqual() {
+        double yard = new Length().convert(Unit.YARD.getUnit(), 1.0);
+        double feet = new Length().convert(Unit.FEET.getUnit(), 3.0);
+        Assert.assertEquals(yard, feet, 0.0);
+    }
 
 }
