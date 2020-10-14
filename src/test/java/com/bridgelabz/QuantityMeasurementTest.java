@@ -156,4 +156,32 @@ public class QuantityMeasurementTest {
         Assert.assertTrue(compareCheck);
     }
 
+    @Test
+    public void giving2inchAnd2inch_ShouldCompareWithAddition(){
+        double inch = new Length().convert(Unit.INCH.getUnit(), 2.0);
+        double inch1 = new Length().convert(Unit.INCH.getUnit(), 2.0);
+        double sumLength = new Length().add(inch,inch1);
+        Assert.assertEquals(sumLength,4.0,0.0);
+    }
+    @Test
+    public void giving1feetAnd2inch_ShouldCompareWithAdditionInInch(){
+        double inch = new Length().convert(Unit.INCH.getUnit(), 2.0);
+        double feet = new Length().convert(Unit.FEET.getUnit(), 1.0);
+        double sumLength = new Length().add(inch,feet);
+        Assert.assertEquals(sumLength,14.0,0.0);
+    }
+    @Test
+    public void giving1feetAnd1feet_ShouldCompareWithAdditionInInch(){
+        double feet1 = new Length().convert(Unit.FEET.getUnit(), 1.0);
+        double feet = new Length().convert(Unit.FEET.getUnit(), 1.0);
+        double sumLength = new Length().add(feet1,feet);
+        Assert.assertEquals(sumLength,24.0,0.0);
+    }
+    @Test
+    public void giving2inchAndCM_ShouldCompareWithAdditionInInch(){
+        double inch = new Length().convert(Unit.INCH.getUnit(), 2.0);
+        double cm = new Length().convert(Unit.CM.getUnit(), 2.5);
+        double sumLength = new Length().add(inch,cm);
+        Assert.assertEquals(sumLength,3.0,0.0);
+    }
 }
