@@ -184,4 +184,19 @@ public class QuantityMeasurementTest {
         double sumLength = new Length().add(inch,cm);
         Assert.assertEquals(sumLength,3.0,0.0);
     }
+    @Test
+    public void giving1gallonAndLitter_ShouldReturnEquals(){
+        double gallon = new Length().convert(Unit.GALLON.getUnit(),1.0);
+        double litter = new Length().convert(Unit.LITER.getUnit(), 3.78);
+        boolean check = new checkEqual(gallon,litter).check();
+        Assert.assertTrue(check);
+    }
+    @Test
+    public void giving1litterAnd1000ml_ShouldReturnEquals(){
+        double litter = new Length().convert(Unit.LITER.getUnit(), 1);
+        double ml = new Length().convert(Unit.ML.getUnit(), 1000);
+        boolean check = new checkEqual(ml,litter).check();
+        Assert.assertTrue(check);
+    }
+
 }
