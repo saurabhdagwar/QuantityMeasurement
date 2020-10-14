@@ -141,5 +141,19 @@ public class QuantityMeasurementTest {
         boolean compareCheck = new checkEqual(cm, inch).check();
         Assert.assertTrue(compareCheck);
     }
+    @Test
+    public void giving1FeetAnd30CM_ShouldReturnEqual() {
+        double cm = new Length().convert(Unit.CM.getUnit(), 30.0);
+        double feet = new Length().convert(Unit.FEET.getUnit(), 1.0);
+        boolean compareCheck = new checkEqual(cm, feet).check();
+        Assert.assertTrue(compareCheck);
+    }
+    @Test
+    public void giving1YardAnd90CM_ShouldReturnEqual() {
+        double cm = new Length().convert(Unit.CM.getUnit(), 90.0);
+        double yard = new Length().convert(Unit.YARD.getUnit(), 1.0);
+        boolean compareCheck = new checkEqual(cm, yard).check();
+        Assert.assertTrue(compareCheck);
+    }
 
 }
