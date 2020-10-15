@@ -6,7 +6,12 @@ public enum Unit{
     CM(0.4),
     LITER(1),
     GALLON(3.78),
-    ML(0.001);
+    ML(0.001),
+    KG(1),
+    GRAM(0.001),
+    TONNE(1000);
+
+
     private double unit;
     Unit(double unit){
         this.unit = unit;

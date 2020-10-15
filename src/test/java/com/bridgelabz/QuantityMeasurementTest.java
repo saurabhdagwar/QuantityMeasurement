@@ -212,5 +212,25 @@ public class QuantityMeasurementTest {
         double sumUnit = new Length().add(ml,litter);
         Assert.assertEquals(sumUnit,2.0,0.0);
     }
-
+    @Test
+    public void giving1KgAnd1000gram_shouldReturnEquals(){
+        double kg = new Length().convert(Unit.KG.getUnit(), 1);
+        double gram = new Length().convert(Unit.GRAM.getUnit(), 1000);
+        boolean check = new checkEqual(kg,gram).check();
+        Assert.assertTrue(check);
+    }
+    @Test
+    public void giving1tonneAnd1000kg_shouldReturnEquals(){
+        double kg = new Length().convert(Unit.KG.getUnit(), 1000);
+        double tonne = new Length().convert(Unit.TONNE.getUnit(), 1);
+        boolean check = new checkEqual(kg,tonne).check();
+        Assert.assertTrue(check);
+    }
+    @Test
+    public void giving1tonneAnd1000gram_shouldReturnAddition(){
+        double tonne = new Length().convert(Unit.TONNE.getUnit(), 1);
+        double gram = new Length().convert(Unit.GRAM.getUnit(), 1000);
+       double sumUnit = new Length().add(tonne,gram);
+        Assert.assertEquals(sumUnit,1001,0.0);
+    }
 }
